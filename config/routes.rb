@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  resources :comments
+  devise_for :users
+
+  resources :links do
+    member do
+      put "like" => "links#like"
+      put "dislike" => "links#dislike"
+    end
+  end
+
+  root "links#index"
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

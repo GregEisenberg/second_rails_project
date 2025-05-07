@@ -1,0 +1,6 @@
+<div id="<%= dom_id link %>">
+  <strong>Title:</strong> <%= link.title %>
+  <strong>Url:</strong> <a href="<%= link.url %>"> <%= link.url %> </a>
+  <br/>
+  <small> Submitted <%= time_ago_in_words(link.created_at) %> by user_id: <%= link.user.id %> <%= link.user.email %></small>
+</div>
