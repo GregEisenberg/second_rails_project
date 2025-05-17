@@ -1,17 +1,7 @@
-<div id="<%= dom_id comment %>">
-  <p>
-    <strong>Body:</strong>
-    <%= comment.body %>
-  </p>
-
-  <p>
-    <strong>Link:</strong>
-    <%= comment.link_id %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= comment.user_id %>
-  </p>
-
-</div>
+<% if comment.created_at != nil %>
+  <div id="<%= dom_id comment %>">
+    <p>User <%= comment.user_id %> said: <pre><%= comment.body %></pre>
+      <i><small><blockquote>last changed <%= time_ago_in_words(comment.updated_at) %> ago</blockquote></small></i>
+    </p>
+  </div>
+<% end %>

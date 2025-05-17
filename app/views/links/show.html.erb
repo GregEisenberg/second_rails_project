@@ -1,13 +1,35 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @link %>
-<br/>
+
+<% if @link.comments.size < 1 %> 
+  <h3>No comments yet!</h3>
+<% else %>
+  <h3>Comments:</h3>
+  <blockquote>
+  <div id="comments">
+    <% @link.comments.each do |comment| %>
+      <%= render comment %>
+    <% end %>
+  </div>
+  </blockquote>
+<% end %>
+
+<% if user_signed_in? %>
+  
+  <%= #render the new commment form 
+  render "comments/form", link: @link, comment: @link.comments.build  
+  %>
+<% end %>
+
+<br/><br/>
 <div>
   <% if @link.user == current_user %>
     <%= link_to "Edit this link", edit_link_path(@link) %> |
     <%= link_to "Destroy this link", @link, method: :delete, data: { confirm: 'Are you sure?' }%>
   <% end %>
   
+
   <br/><br/>
   <%= link_to "Back to links", links_path %>
 

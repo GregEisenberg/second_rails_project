@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :comments
   devise_for :users
 
   resources :links do
@@ -7,6 +6,8 @@ Rails.application.routes.draw do
       put "like" => "links#like"
       put "dislike" => "links#dislike"
     end
+
+    resources :comments
   end
 
   root "links#index"

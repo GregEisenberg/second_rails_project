@@ -1,6 +1,7 @@
 <div id="<%= dom_id link %>">
-  <strong>Title:</strong> <%= link.title %>
+  <strong>ID:</strong> <%= link.id %>&nbsp;&nbsp;
+  <strong>Title:</strong> <%= link.title %>&nbsp;&nbsp;
   <strong>Url:</strong> <a href="<%= link.url %>"> <%= link.url %> </a>
   <br/>
-  <small> Submitted <%= time_ago_in_words(link.created_at) %> by user_id: <%= link.user.id %> <%= link.user.email %></small>
+  <blockquote><small> Submitted <%= time_ago_in_words(link.created_at) %> ago, by user_id: <%= link.user.id %> <%= link.user.email %></small></blockquote>
 </div>

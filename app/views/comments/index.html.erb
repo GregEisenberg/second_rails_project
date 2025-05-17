@@ -2,15 +2,16 @@
 
 <% content_for :title, "Comments" %>
 
-<h1>Comments</h1>
 
-<div id="comments">
-  <% @comments.each do |comment| %>
-    <%= render comment %>
-    <p>
-      <%= link_to "Show this comment", comment %>
-    </p>
-  <% end %>
-</div>
+  <h1>Comments for Link ID: <%= @link.id %></h1>
 
-<%= link_to "New comment", new_comment_path %>
+  <div id="comments">
+    <% @comments.each do |comment| %>
+      <%= render comment %>
+      <p>
+        <%# <%= link_to "Show this comment", comment %> 
+      </p>
+    <% end %>
+  </div>
+
+<%# <%= link_to "New comment", new_comment_path %> 

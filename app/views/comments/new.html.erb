@@ -1,11 +1,13 @@
 <% content_for :title, "New comment" %>
 
-<h1>New comment</h1>
+<h1>New comment for link_id: <%= params[:link_id] %></h1>
 
-<%= render "form", comment: @comment %>
+<%= render Link.find(params[:link_id]) %>
+<br/>
+<%= render "form", link: @link, comment: @comment %>
 
 <br>
 
 <div>
-  <%= link_to "Back to comments", comments_path %>
+  <%= link_to "Back to Link", @link  %>
 </div>
